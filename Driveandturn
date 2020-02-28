@@ -2,9 +2,28 @@
 
 int main()
 {
+wait_for_light();
+shut_down_in(119);
+int arm_port=0;
+int arm_up=500;
+int arm_down=1175;
+int claw_port=1;
+int claw_open=1800;
+int claw_closed=750;
+enable_servos();
+set_servo_position(arm_port, arm_up);
+set_servo_position(claw_port, claw_close);
     motor(0, 10000);
      motor(3, 10000);
     msleep(3500);
+    set_servo_position(claw_port, claw_open);
+    msleep(2000);
+    set_servo_position(arm_port, arm_down);
+    msleep(2000);
+    set_servo_position(claw_port, claw_close);
+    msleep(2000);
+     set_servo_position(arm_port, arm_up);
+    msleep(2000);
    motor(3, -100);
      msleep(600);
      motor(0, 10000);
